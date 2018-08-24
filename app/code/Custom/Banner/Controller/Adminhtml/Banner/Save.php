@@ -36,8 +36,9 @@ class Save extends Action
             $fileName = ($image && array_key_exists('name', $image)) ? $image['name'] : null;
 
             /** @var  $imageHelper Image */
-            $newImage = $this->_objectManager->get('Custom\Banner\Helper\Image')->storeBannerImage($image, $fileName);
-            $data['image'] = $newImage ? $newImage : $data['image']['value'];
+            $imageHelper = $this->_objectManager->get('Custom\Banner\Helper\Image');
+            $newImage = $imageHelper->storeBannerImage($image, $fileName);
+            $data['image'] = $imageHelper->getImage($data, $newImage);
             $model->setData($data);
 
             $this->_eventManager->dispatch(

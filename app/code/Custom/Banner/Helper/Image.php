@@ -6,6 +6,7 @@ use Magento\Framework\App\Filesystem\DirectoryList;
 use Magento\Framework\App\Helper\AbstractHelper;
 use Magento\Framework\App\ObjectManager;
 use Magento\MediaStorage\Model\File\Uploader;
+use Magento\Setup\Exception;
 
 class Image extends AbstractHelper
 {
@@ -36,5 +37,20 @@ class Image extends AbstractHelper
                 return null;
             }
         }
+    }
+
+    public function getImage($data, $newImage)
+    {
+        if ($newImage) {
+            return $newImage;
+        }
+
+        try {
+            return $data['image']['value'];
+        } catch (Exception $e) {
+            return null;
+        }
+
+        return null;
     }
 }
