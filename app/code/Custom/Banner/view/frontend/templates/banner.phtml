@@ -1,0 +1,17 @@
+<?php
+    $banner = $this->getCurrentBanner();
+    $mediaUrl = $this->getMediaUrl();
+    $url = $banner->getUrlKey() ? $banner->getUrlKey() : '';
+?>
+<?php if ($banner->getId()) : ?>
+<div>
+    <?php if ($url): ?>
+    <a class="banner-container" href="<?php echo $url ?>" target="_blank">
+    <?php else: ?>
+    <a class="banner-container">
+    <?php endif; ?>
+        <img src="<?php echo $mediaUrl . $banner->getImage(); ?>">
+        <div class="centered"><?php echo $banner->getName(); ?></div>
+    </a>
+</div>
+<?php endif; ?>

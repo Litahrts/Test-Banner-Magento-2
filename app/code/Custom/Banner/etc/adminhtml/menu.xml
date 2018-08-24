@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Custom_Banner::sample"
+             title="Custom Banner" translate="title" module="Custom_Banner"
+             sortOrder="15"
+             resource="Custom_Banner::sample"/>
+        <add id="Custom_Banner::sample_grid"
+             title="Grid" translate="title" module="Custom_Banner"
+             sortOrder="100" parent="Custom_Banner::sample"
+             action="custom_banner/banner/index"
+             resource="Custom_Banner::sample_grid"/>
+    </menu>
+</config>
